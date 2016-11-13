@@ -1,0 +1,49 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	function completar(){
+		var enc=false;
+		var xmlDoc = document.getElementById('datos').contentDocument;
+		var correo = document.getElementById("email").value;
+		var listacorreos=xmlDoc.getElementsByTagName("email");
+		var listatelefonos=xmlDoc.getElementsByTagName("telefono");
+		var listanombres=xmlDoc.getElementsByTagName("nombre");
+		var lista_apellidos1=xmlDoc.getElementsByTagName("apellido1");
+		var lista_apellidos2=xmlDoc.getElementsByTagName("apellido2");
+		
+		for (var i = 0; i < listacorreos.length; i++) {
+			if (correo==listacorreos[i].childNodes[0].nodeValue){
+				document.getElementById('telefono').value=listatelefonos[i].childNodes[0].nodeValue;
+				document.getElementById('nombre').value=listanombres[i].childNodes[0].nodeValue;
+				document.getElementById('apellido').value=lista_apellidos1[i].childNodes[0].nodeValue +' '+lista_apellidos2[i].childNodes[0].nodeValue;
+				enc=true;
+				break;
+			}
+		}
+		if (!enc)
+		{alert ('Este correo no está registrado en la UPV/EHU. Introduzca otro');
+		}
+	}
+</script>
+<div align="center">
+<h1>Buscar Datos</h1>
+<OBJECT id="datos" data="usuarios.xml" type="text/xml" style="display:none"> </OBJECT>
+<FORM METHOD="POST" ACTION="#">
+Correo <BR>
+<INPUT TYPE="TEXT" NAME="email" id="email" required pattern ="([a-zA-Z]{2,})\d{3}@(ikasle\.){0,1}ehu\.(eus|es)"><BR>
+Nombre <BR>
+<INPUT TYPE="TEXT" NAME="nombre" id="nombre" maxlength="9" /><br>
+Apellidos <BR>
+<INPUT TYPE="TEXT" NAME="apellido" id="apellido"  maxlength="9"  /><br>
+Teléfono <BR>
+<INPUT TYPE="TEXT" NAME="telefono" id="telefono" maxlength="9" pattern="[0-9]{9}" />
+
+<br><br>
+<INPUT TYPE="button" class="btn btn-success" value="Autocompletar" onClick="javascript:completar()">
+</FORM>
+</div>
+</BODY>
+</HTML>

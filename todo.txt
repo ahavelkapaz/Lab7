@@ -1,0 +1,7 @@
+Este Lab:
+-	Completado
+
+To Do:
+-	Acoplar al Layout todas las funcionalidades
+-	Cambiar que no guarde la foto de anonimo en la bd y la muestre directamente en verUsuarios
+-	Añadir a checkLogin el update de usuario_online para que funcione con todas las paginas

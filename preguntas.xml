@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl"  href="verPreguntas.xsl"?>
+<assessmentItems>
+<assessmentItem complexity="0" subject="sdfds"><itemBody><p>asdsa</p></itemBody><correctResponse><value>sdffsdf </value></correctResponse></assessmentItem><assessmentItem complexity="3" subject="sdfsd"><itemBody><p>dfssdf</p></itemBody><correctResponse><value>dsfsd</value></correctResponse></assessmentItem><assessmentItem complexity="2" subject="Pruebas"><itemBody><p>Prueba</p></itemBody><correctResponse><value>Vale </value></correctResponse></assessmentItem></assessmentItems>
